@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import { Telegraf } from "telegraf";
 import { instagramDownloader } from "./commands/instagram.js";
+import { tiktok } from "./commands/tiktok.js";
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.start((ctx) => {
@@ -25,7 +26,7 @@ bot.hears(
   /(?:(?:http|https):\/\/)?(?:www.)?(?:instagram.com|instagr.am|instagr.com)\/(\w+)/gim,
   instagramDownloader
 );
-bot.hears(/^https?:\/\/(?:[a-z0-9-]+\.)?tiktok\.com\//, () => {});
+bot.hears(/^https?:\/\/(?:[a-z0-9-]+\.)?tiktok\.com\//, tiktok);
 
 bot.launch(() => {
   console.log("Bot listing...");
