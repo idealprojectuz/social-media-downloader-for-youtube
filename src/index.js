@@ -4,6 +4,7 @@ import path from "path";
 import { Telegraf } from "telegraf";
 import { instagramDownloader } from "./commands/instagram.js";
 import { tiktok } from "./commands/tiktok.js";
+import { youtube } from "./commands/youtube.js";
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.start((ctx) => {
@@ -27,6 +28,10 @@ bot.hears(
   instagramDownloader
 );
 bot.hears(/^https?:\/\/(?:[a-z0-9-]+\.)?tiktok\.com\//, tiktok);
+bot.hears(
+  /(youtu.*be.*)\/(watch\?v=|embed\/|v|shorts|)(.*?((?=[&#?])|$))/gm,
+  youtube
+);
 
 bot.launch(() => {
   console.log("Bot listing...");
