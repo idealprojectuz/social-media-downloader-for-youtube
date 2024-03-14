@@ -5,8 +5,11 @@
   "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "localserver": "telegram-bot-api --local --api-id=20677689 --api-hash=2b789e9e044f6f24aa0263095e40a947 --http-port=13001 --http-stat-port=13000",
+    "bot": "node src/index.js",
+    "start": "npm-run-all -p localserver bot",
+    "dev": "npm-run-all -p localserver dev_mode",
+    "dev_mode": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +25,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.25",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "npm-run-all": "^4.1.5"
   }
 }
