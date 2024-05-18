@@ -5,7 +5,7 @@
   "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "localserver": "telegram-bot-api --local --api-id=20677689 --api-hash=2b789e9e044f6f24aa0263095e40a947 --http-port=13001 --http-stat-port=13000",
+    "localserver": "telegram-bot-api --local --api-id=YOUR_API_ID --api-hash=YOUR_API_HASH --http-port=13001 --http-stat-port=13000",
     "bot": "node src/index.js",
     "start": "npm-run-all -p localserver bot",
     "dev": "npm-run-all -p localserver dev_mode",
